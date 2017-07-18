@@ -10,32 +10,7 @@
 		<script src="js/iSlider.js"></script>
 		<script src="js/resize.js"></script>
 		<script>
-			function preloadimages(arr){
-		 var newimages =[], loadedimages =0
-		 var postaction =function(){}//此处增加了一个postaction函数
-		 var arr =(typeof arr !="object")?[arr]: arr
-		 function imageloadpost(){
-			 loadedimages++
-			 if(loadedimages == arr.length){
-				 postaction(newimages)//加载完成用我们调用postaction函数并将newimages数组做为参数传递进去
-			 }
-		 }
-		 for(var i =0; i < arr.length; i++){
-			 newimages[i]= new Image()
-			 newimages[i].src = arr[i]
-			 newimages[i].onload =function(){
-			 imageloadpost()
-				 }
-			 newimages[i].onerror =function(){
-			 	imageloadpost()
-			 }
-		 }
-		 return{//此处返回一个空白对象的done方法
-		 	done:function(f){
-				 postaction = f || postaction
-			 }
-		 }
-	 }
+			
 		</script>
 	</head>
 	<body>
@@ -54,25 +29,12 @@
 			type:'get',
 			success:function(data){
 				
-				var arr = [];
-				$.each(data.page2data,function(i,val){
-					arr.push(val.imgUrl);
-				});
-				$.each(data.page5data,function(i,val){
-					arr.push(val.imgUrl);
-				});
-				$.each(data.page7data,function(i,val){
-					arr.push(val.imgUrl);
-				});
 				
-				preloadimages(arr).done(function(images){
-	
-	 
 				
 				var page1 =  '<img class="page1Bg" src="img/source/1.png" /><div class="img-preview-over" style=""><a class="ui-link"><img class="ui-image"  src="//z1.xiu.top/uploadFiles/gif/20170525213506939.gif"></a></div>';
-				var page2,data2 = '',res2 = arr;
-				for(var i=0;i<6;i++){
-					data2 += '<div class="tepm-img"><img src="'+res2[i]+'"/></div>'
+				var page2,data2 = '',res2 = data.page2data;
+				for(var i=0;i<res2.length;i++){
+					data2 += '<div class="tepm-img"><img src="'+res2[i].imgUrl+'"/></div>'
 				}
 				
 				page2 = '<img src="img/source/33/2016-09-17 (2).jpeg"  class="page1Bg " style="width:100%;height:100%;filter: blur(4px);"/>'
@@ -96,9 +58,9 @@
 							+ '</div><div id="p4-title2" class="p4-title2"></div></div>'
 							+ '<div class="bottom"><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">我能想到最浪漫的事</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">就是和你一起慢慢变老</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">一路上收藏点点滴滴的欢笑</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">留到以后坐着摇椅慢慢聊</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">直到我们老得哪儿也去不了</span><span style="font-size: 14px; line-height: 16px; color: inherit; background-color: initial;">你还依然把我当成手心里的宝</span></div></div>'
 							+ '</div>'
-				  var page5 ,data5="",res5 = arr;
-				  for(var i=6;i<10;i++){
-				  	data5 += '<div class="tepm2-img"><img src="'+res5[i]+'"/></div>'
+				  var page5 ,data5="",res5 = data.page5data;
+				  for(var i=0;i<res5.length;i++){
+				  	data5 += '<div class="tepm2-img"><img src="'+res5[i].imgUrl+'"/></div>'
 				  	
 				  }
 				   page5 = '<img class="page1Bg" src="img/source/page_6.jpg" /><div id="page5" class="page5 page">'
@@ -112,9 +74,9 @@
 				  			+ '<div class="p-title"><span >the pictures of the past</span></div>'
 				  			+ '</div>'
 				  			+ '</div>'
-				  var page7 = '',demo='',res7 = arr;
-				  for(var i=10;i<32;i++){
-						demo += '<li num="'+(i-10)+'">'+ '<div class="element-box" ><div class="element-box-contents" style="width: 100%; height: 100%"><img src="'+res7[i]+'" ></div></div>'+ '</li>'
+				  var page7 = '',demo='',res7 = data.page7data;
+				  for(var i=0;i<res7.length;i++){
+						demo += '<li num="'+i+'">'+ '<div class="element-box" ><div class="element-box-contents" style="width: 100%; height: 100%"><img src="'+res7[i].imgUrl+'" ></div></div>'+ '</li>'
 				  }
 				  page7 +='<img class="page1Bg" src="img/source/page_5.jpg" />'+ '<div id="page7" class="page7 page">'+ demo+ '</div>'
 				
@@ -250,8 +212,6 @@
 						    	_this.slideNext()
 						    })//下一页
 			        }
-				});
-				
 				});
 			},
 			error:function(e){
