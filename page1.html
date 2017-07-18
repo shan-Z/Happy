@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome-4.5.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="js/jquery-2.0.3.min.js" ></script>
+		<script src="js/iSlider.js"></script>
+		<script src="js/resize.js"></script>
+		<script>
+			function preloadimages(arr){   
+
+		    var newimages=[], loadedimages=0
+		    var postaction=function(){}  //此处增加了一个postaction函数
+		    var arr=(typeof arr!="object")? [arr] : arr
+		    function imageloadpost(){
+		        loadedimages++
+		        if (loadedimages==arr.length){
+		            postaction(newimages) //加载完成用我们调用postaction函数并将newimages数组做为参数传递进去
+		        }
+		    }
+		    for (var i=0; i<arr.length; i++){
+		        newimages[i]=new Image()
+		        newimages[i].src=arr[i]
+		        newimages[i].onload=function(){
+		            imageloadpost()
+		        }
+		        newimages[i].onerror=function(){
+		            imageloadpost()
+		        }
+		    }
+		    return { //此处返回一个空白对象的done方法
+		        done:function(f){
+		            postaction=f || postaction
+		        }
+		    }
+		}
+			
+		
+		</script>
+	</head>
+	<body>
+		<div id="iSlider-wrapper"></div><i class="next fa fa-chevron-up" id='nextPage'></i>
+		<!--音乐播放-->
+		<!--<div id="audio_btn" class="video_exist play_yinfu" style="display: block;">  
+			<div id="yinfu" class="rotate"></div>   
+			<audio id="myMusic" src="img/basic/Beautiful In White.mp3" loop="loop" style="" autoplay="autoplay"></audio>
+		</div>-->
+		<!--背景-->
+		
+		<script>
+			 
+	$.ajax({
+			url:'js/url/page.json',
+			type:'get',
+			success:function(data){
+				
+				
+				
+				var page1 =  '<img class="page1Bg" src="img/source/1.png" /><div class="img-preview-over" style=""><a class="ui-link"><img class="ui-image"  src="//z1.xiu.top/uploadFiles/gif/20170525213506939.gif"></a></div>';
+				var page2,data2 = '',res2 = data.page2data;
+				for(var i=0;i<res2.length;i++){
+					data2 += '<div class="tepm-img"><img src="'+res2[i].imgUrl+'"/></div>'
+				}
+				
+				page2 = '<img src="img/source/33/2016-09-17 (2).jpeg"  class="page1Bg " style="width:100%;height:100%;filter: blur(4px);"/>'
+				  			+ '<div id="page2Bg" class="page2Bg  page">'
+				  			+ '<div class="p2-title1" >'
+				  			+ '<div class="p2-title2"><p>去过不同的地方</p><p>留下同样的足迹</p></div>'
+	        				+ '</div><div class="imgs-wrap " >'
+							+ data2
+							+ '</div>'
+							+ '</div>'
+					
+				  
+				  var page3 = '<img class="page1Bg page3blur" src="img/source/page_3.jpg" />'
+				  			+ '<div id="page3" class="page3 page">'
+				  			+ '<div class="tepm-img"><img src="img/source/33/2016-05-01.jpeg"/></div>'
+				  			+ '<div style="position:relative;z-index: 10;"><div class="p3-title"><span style="line-height: 16px; font-size: 14px;">最美的事情是 携</span></div><div  class="p3-title"><span style="line-height: 16px; font-size: 14px;">着你的手看这个世界</span></div><div  class="p3-title"><span style="line-height: 16px; font-size: 14px;">和你去闻闻新鲜的春天  感受阳光洒在肩上的夏</span></div><div  class="p3-title"><span style="line-height: 16px; font-size: 14px;">天  整个世界涂满金色的秋天  静静等待希望的冬天</span></div><div  class="p3-title"><span style="line-height: 16px; font-size: 14px;"></span></div><div   class="p3-title"><span style="font-size: 14px; line-height: 16px; color: inherit; background-color: initial;"></span></div></div>'
+				  			+ '</div>'
+				  var page4 = '<img class="page1Bg" src="img/source/page_4.png" /><div id="page4" class=" page">'
+				            + '<div class="titles"><div class="p4-title1" >'
+				            + '<img class="ui-image" style="height: 149px; width: 65px; max-width: inherit; margin-top: 0px; margin-left: 0px; display: block;" src="//z2.xiu.top/upload/e93c588dd48dccce8ea914b40d505d16/img/e81dc70cb290dfaf.png" dynamic-src="//z2.xiu.top/upload/e93c588dd48dccce8ea914b40d505d16/img/e81dc70cb290dfaf.png">'
+							+ '</div><div id="p4-title2" class="p4-title2"></div></div>'
+							+ '<div class="bottom"><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">我能想到最浪漫的事</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">就是和你一起慢慢变老</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">一路上收藏点点滴滴的欢笑</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">留到以后坐着摇椅慢慢聊</span></div><div style="text-align: left;"><span style="line-height: 16px; font-size: 14px;">直到我们老得哪儿也去不了</span><span style="font-size: 14px; line-height: 16px; color: inherit; background-color: initial;">你还依然把我当成手心里的宝</span></div></div>'
+							+ '</div>'
+				  var page5 ,data5="",res5 = data.page5data;
+				  for(var i=0;i< res5.length;i++){
+				  	data5 += '<div class="tepm2-img"><img src="'+res5[i].imgUrl+'"/></div>'
+				  }
+				   page5 = '<img class="page1Bg" src="img/source/page_6.jpg" /><div id="page5" class="page5 page">'
+				  		 + '<div class="imgs-box">'+data5+'</div><div class="box-border"><div></div></div></div>'
+				  			
+				  var page6 = '<img class="page1Bg" src="img/source/page_6.gif" />'
+				  			+ '<div id="page6" class="page6 page">'
+				  			+ '<div class="imgs-box">'
+				  			+ '<div class="p-title"><span >in this moment</span></div>'
+				  			+ '<div class="p-title"><span >let\'s turn over</span></div>'
+				  			+ '<div class="p-title"><span >the pictures of the past</span></div>'
+				  			+ '</div>'
+				  			+ '</div>'
+				  var page7 = '',demo='',res7 = data.page7data;
+				  for(var i=0;i< res7.length;i++){
+						demo += '<li num="'+i+'">'+ '<div class="element-box" ><div class="element-box-contents" style="width: 100%; height: 100%"><img src="'+res7[i].imgUrl+'" ></div></div>'+ '</li>'
+				  }
+				  page7 +='<img class="page1Bg" src="img/source/page_5.jpg" />'+ '<div id="page7" class="page7 page">'+ demo+ '</div>'
+				
+				
+				var page8;
+				page8 = '<img class="page1Bg" src="img/source/page8/1.jpg" />'
+					  + '<div id="page8"  class="page" style="font-size:20px;">我们曾'
+					  + '<div class="p-title"><span >一起下厨</span></div>'
+					  + '<div class="p-title"><span >做彼此喜欢的吃的食物</span></div>'
+					  + '</div>'
+				var page9;
+				page9 = '<img class="page1Bg" src="img/source/page8/2.jpg" />'
+					  + '<div id="page9" class="page">'
+					  + '<div class="p-title"><span >手挽着手</span></div>'
+					  + '<div class="p-title"><span >一起在雨中散步</span></div>'
+					  + '</div>'
+				var page10;
+				page10 = '<img class="page1Bg" src="img/source/page8/3.jpg" />'
+					   + '<div id="page10" class="page">'
+					   + '<div class="p-title"><span >一起看风景</span></div>'
+					   + '<div class="p-title"><span >哪怕只在自家窗前</span></div>'
+					   + '</div>'
+				var page11;
+				page11 = '<img class="page1Bg" src="img/source/page8/4.jpg" />'
+					   + '<div id="page11" class="page">'
+					   + '<div class="p-title"><span >一起刷牙洗脸</span></div>'
+					   + '<div class="p-title"><span >对着同一面镜子</span></div>'
+					   + '</div>'
+			    var page12;
+				page12 = '<img class="page1Bg" src="img/source/page8/5.jpg" />'
+					   + '<div id="page12" class="page">'
+					   + '<div class="p-title"><span >相互依偎</span></div>'
+					   + '<div class="p-title"><span >一起看同一部电视剧</span></div>'
+					   + '</div>'
+			    var page13;
+				page13 = '<img class="page1Bg" src="img/source/page8/6.jpg" />'
+					   + '<div id="page13" class="page">'
+					   + '<div class="p-title"><span >一起做家务</span></div>'
+					   + '<div class="p-title"><span >各为所能，尽力承担</span></div>'
+					   + '</div>'
+			    var page14;
+				page14 = '<img class="page1Bg" src="img/source/page8/7.jpg" />'
+					   + '<div id="page14" class="page">'
+					   + '<div class="p-title"><span >一起吃冰淇淋</span></div>'
+					   + '<div class="p-title"><span >在草地上，在阳光下</span></div>'
+					   + '</div>'
+			    var page15;
+				page15 = '<img class="page1Bg" src="img/source/page8/8.jpg" />'
+					   + '<div id="page15" class="page">'
+					   + '<div class="p-title"><span >同床共枕</span></div>'
+					   + '<div class="p-title"><span >看不同的书，做一样的梦</span></div>'
+					   + '</div>'
+				var page16;
+				page16 = '<img class="page1Bg" src="img/source/page8/9.jpg" />'
+					   + '<div id="page9" class="page">'
+					   + '<div class="p-title"><span >彼此成为彼此</span></div>'
+					   + '<div class="p-title"><span >最信任的依靠</span></div>'
+					   + '</div>'
+				/*滑动页面*/
+  				  var list = [
+  				  		/*{
+  				  			content:'img/source/loading_200x_200.gif'
+  				  		},*/
+  				  		{
+				            content: page4
+				        },
+  				  		{
+				            content: page8
+				        },
+				        {
+				            content: page9
+				        }
+				        ,
+				        {
+				            content: page10
+				        },
+				        {
+				            content: page11
+				        },
+				        {
+				            content: page12
+				        }
+				        ,
+				        {
+				            content: page13
+				        },
+				        {
+				            content: page14
+				        },
+				        {
+				            content: page15
+				        }
+				        ,
+				        {
+				            content: page16
+				        },
+				        {
+				        	content: page6
+				        },
+				        /*{
+				            content: page1
+				        },*/
+				        {
+				            content: page2
+				        },
+				        {
+				            content: page3
+				        },
+				        {
+				        	content: page5
+				        },
+				        {
+				        	content: page7
+				        },
+				        {
+				        	content:'img/source/loading_200x_200.gif'
+				        },
+				        
+				        
+				];
+				
+			   /*iSlider插件*/	
+				var S = new iSlider({
+					dom: document.getElementById('iSlider-wrapper'),
+			        data: list,
+			        isAutoplay: 0,
+			        isLooping: 1,
+			        isOverspread: 1,
+			        animateTime: 800,
+			        isVertical: true,
+			        oninitialized:function(){
+			        	var _this = this;
+			        	var next = document.getElementById('nextPage');
+						    next.addEventListener('touchend',function(){
+						    	_this.slideNext()
+						    })//下一页
+			        }
+				});
+				
+				
+			},
+			error:function(e){
+				console.log(e)
+			}
+			
+			
+	})
+			
+			  			
+			  			
+			  
+			 
+		   
+		   
+		  /* page4  时分秒显示*/
+		 	 //时间
+		  setInterval(function(){
+		        var th_moment = new Date(2016,1,13,23,0);//获取当初时间
+		        var now = new Date();//获取当前时间
+		        var time = (now-th_moment)/1000;   //当前时间-当初时间
+		        var day = Math.floor(time/(24*60*60));//天数
+		        var hour = Math.floor(time%(24*60*60)/(60*60));//小时
+		        var min = Math.floor(time%(24*60*60)%(60*60)/60);//分钟
+		        var second = Math.floor(time%(24*60*60)%(60*60)%60);//秒钟
+		        hour = hour < 10 ? "0" + hour.toString():hour;//数字小于10时在前方加“0”
+		        min = min < 10 ? "0" + min.toString():min;
+		        second = second < 10 ? "0" + second.toString():second;
+		        var result = "<p class='days-count'>在一起 <span>"+day+"</span>天<span>"+hour+"</span>小时<span>"+min+"</span>分<span>"+second+"</span>秒";//时间显示
+		        
+		       
+		       if(document.getElementById("p4-title2"))
+		       {
+		       		document.getElementById("p4-title2").innerHTML = result;
+		       }
+		       
+		 
+		   },1000);
+			
+		
+		</script>
+	</body>
+</html>
