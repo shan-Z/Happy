@@ -53,7 +53,7 @@
 			url:'js/url/page.json',
 			type:'get',
 			success:function(data){
-				console.log(data)
+				
 				var arr = [];
 				$.each(data.page2data,function(i,val){
 					arr.push(val.imgUrl);
@@ -64,7 +64,7 @@
 				$.each(data.page7data,function(i,val){
 					arr.push(val.imgUrl);
 				});
-				console.log(arr);
+				
 				preloadimages(arr).done(function(images){
 	
 	 
