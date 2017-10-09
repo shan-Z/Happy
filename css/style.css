@@ -260,15 +260,15 @@ body {
 @keyframes smshowUp{from{bottom:-4.93rem;}to{bottom: -1rem;}}
 @keyframes fly1{
 	0%{left:-20rem;}
-	50%{left:0.1rem;}
-	/*85%{left:-0.05rem}*/
-	100%{left:0;}
+	100%{left:0rem;}
+	/*85%{left:-0.05rem}
+	100%{left:0;}*/
 }
 @keyframes fly2{
 	0%{right:-20rem;}
-	50%{right:0.1rem;}
-	/*85%{right:-0.05rem}*/
-	100%{right:0;}
+	100%{right:0rem;}
+	/*85%{right:-0.05rem}
+	100%{right:0;}*/
 }
 @keyframes flyTop{
 	0%{top:-10rem;}
