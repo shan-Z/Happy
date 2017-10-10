@@ -119,6 +119,12 @@ body {
     top: 13px;
     width: 34px;
 }
+#myMusic{width: 34px;
+    height: 34px;
+    margin-top: 12px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    margin-left: -4px;opacity: 0;z-index: 99;}
 
 
 .share-page .box * {
