@@ -522,4 +522,4 @@ body {
 }
 .islider-active .page .p-title:nth-child(1){animation: fadeIn 3s ease  0.1s 1 forwards;}
 .islider-active .page .p-title:nth-child(2){animation: fadeIn 3s ease  0.5s 1 forwards;}
-.islider-active .page .p-title:nth-child(3){animation: http://wx4.sinaimg.cn/mw690/a1542f4bly1fnxh9ouv1kj20u01404qp.jpg 3s ease  1s 1 forwards;}
+.islider-active .page .p-title:nth-child(3){animation: fadeIn 3s ease  1s 1 forwards;}
