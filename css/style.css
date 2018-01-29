@@ -289,7 +289,7 @@ body {
 .islider-active .page3  .p3-title:nth-child(5){animation: p3Title1 1.5s ease 2.7s 1 forwards ;}
 
 .islider-active .page3  .tepm-img:nth-child(1){animation: fly3 1.5s ease 0.8s 1 forwards ;}
-.islider-active  .page3blur{animation: blur 2s ease 0s 1 forwards;}
+.islider-active  .page3blur{animation: blur 1s ease 0s 1 forwards;}
 @keyframes blur{
 	from{filter: blur(0px);}
 	to{filter: blur(4px);}
@@ -387,6 +387,19 @@ body {
 .islider-active  #page5 .tepm2-img:nth-child(2){animation: p5flyRight 2s ease  0s 1 forwards;}
 .islider-active  #page5 .tepm2-img:nth-child(3){animation: p5flyBottom 2s ease  0s 1 forwards;}
 .islider-active  #page5 .tepm2-img:nth-child(4){animation: p5flyLeft 2s ease  0s 1 forwards;}
+.p5-title1{position: absolute;top: 1rem;left: -5rem;font-size: 0.5rem;color: #fff;}
+.p5-title2{position: absolute;top: 1rem;right: -5rem;font-size: 0.5rem;color: #fff;}
+.islider-active #page5 .p5-title1{animation: p5formleft 2s ease  1.5s 1 forwards;}
+.islider-active #page5 .p5-title2{animation: p5formright 2s ease  1.5s 1 forwards;}
+
+@keyframes p5formleft{
+	0%{left:-5rem;}
+	100%{left: 1.5rem;}
+}
+@keyframes p5formright{
+	0%{right: -10rem;}
+	100%{right: 1.5rem;}
+}
 @keyframes p5flyTop{
 	0%{top: -10rem;}
 	100%{top: 0;}
@@ -409,6 +422,7 @@ body {
 }
 
 
+
 /*page6*/
 #page6 .imgs-box{
 	position: relative;
@@ -422,6 +436,12 @@ body {
 
 /*page7*/
 
+.p7-title1{position: absolute;top: 1rem;left: -10rem;font-size: 0.5rem;color: #333;}
+.islider-active  .p7-title1{animation: p7formleft 1.9s ease  2s 1 forwards;}
+@keyframes p7formleft{
+	0%{left:-10rem;}
+	100%{left: 0.25rem;}
+}
 .element-box{opacity:0;width: 100%; height: 100%;display: block;}
 /*#page7 li .element-box img{width: 100%; height: 100%; }*/
 
@@ -522,4 +542,4 @@ body {
 }
 .islider-active .page .p-title:nth-child(1){animation: fadeIn 3s ease  0.1s 1 forwards;}
 .islider-active .page .p-title:nth-child(2){animation: fadeIn 3s ease  0.5s 1 forwards;}
-.islider-active .page .p-title:nth-child(3){animation: fadeIn 3s ease  1s 1 forwards;}
+.islider-active .page .p-title:nth-child(3){animation: http://wx4.sinaimg.cn/mw690/a1542f4bly1fnxh9ouv1kj20u01404qp.jpg 3s ease  1s 1 forwards;}
